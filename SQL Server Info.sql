@@ -326,11 +326,11 @@ WHERE name IN ('min server memory (MB)', 'max server memory (MB)')
 /*
 
 
-$url = "https://raw.githubusercontent.com/utente/repo/main/script.sql"
+$url = "https://raw.githubusercontent.com/umsgpa/SQL-Server-Info/main/SQL%20Server%20Info.sql"
 
 $sql = Invoke-WebRequest -Uri $url -UseBasicParsing | Select-Object -ExpandProperty Content
 
-Invoke-Sqlcmd -ServerInstance "NOME_SERVER" -Database "NOME_DB" -Query $sql
+Invoke-Sqlcmd -ServerInstance "<SQLServer>\<SQLServerInstance>" -Database "<database_name>" -Query $sql
 
 
 
