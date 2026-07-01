@@ -58,6 +58,22 @@
 `Invoke-Sqlcmd -ServerInstance "<SQLServer>\<SQLServerInstance>" -Database "<database_name>" -Query $sql`
 
 
+here an alternative to save data in a CSV file:
+
+
+`$url = "https://raw.githubusercontent.com/umsgpa/SQL-Server-Info/main/SQL%20Server%20Info.sql"`
+
+`$sql = Invoke-WebRequest -Uri $url -UseBasicParsing | Select-Object -ExpandProperty Content`
+
+`$result = Invoke-Sqlcmd ` `
+`    -ServerInstance ".\SQL2022" ` 
+`    -Database "master" ` `
+`    -Query $sql `
+
+`# Export to CSV`
+`$result | Export-Csv -Path "C:\Temp\SqlServerInfo.csv" -NoTypeInformation -Encoding UTF8`
+
+
 
 ## License and attribution
 
