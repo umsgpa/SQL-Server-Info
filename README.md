@@ -65,13 +65,14 @@ here an alternative to save data in a CSV file:
 
 `$sql = Invoke-WebRequest -Uri $url -UseBasicParsing | Select-Object -ExpandProperty Content`
 
-`$result = Invoke-Sqlcmd ` `
-`    -ServerInstance ".\SQL2022" ` 
-`    -Database "master" ` `
-`    -Query $sql `
+`$result = Invoke-Sqlcmd `
+    `-ServerInstance "<SQLServer>\<SQLServerInstance>" `
+    `-Database "<database_name>" `
+    `-Query $sql`
 
-`# Export to CSV`
-`$result | Export-Csv -Path "C:\Temp\SqlServerInfo.csv" -NoTypeInformation -Encoding UTF8`
+
+
+
 
 
 
